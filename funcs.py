@@ -85,7 +85,7 @@ def mergeCluster(win,overlap):
     return merged_Cluster,deleted_Cluster
 def fadingall(Mt):
     for Ni in Mt:
-	fadeThreshold = 10
+        fadeThreshold = 10
         if Ni.n < fadeThreshold:
             Mt =  np.delete(Mt,where(Mt==Ni))
 
