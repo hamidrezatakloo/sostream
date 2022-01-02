@@ -1,6 +1,8 @@
 from funcs import Dist,updateCluster,findNeighbors,findoverlap,mergeCluster,minDist
 from csv import reader
 import Cluster
+import time
+start  = time.time()
 with open("Dataset_1.csv",'r') as read_obj:
     DS = reader(read_obj)
     M = [[]]
@@ -30,3 +32,5 @@ with open("Dataset_1.csv",'r') as read_obj:
         else:
             Mt.append(Cluster.Cluster(Vt))
         M.append(Mt)
+    end = time.time()
+    print("exe time:{}".format(end - start))
