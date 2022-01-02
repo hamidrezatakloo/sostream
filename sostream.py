@@ -1,3 +1,4 @@
+from funcs import Dist,updateCluster,findNeighbors,findoverlap,mergeCluster,minDist
 from csv import reader
 import Cluster
 with open("Dataset_1.csv",'r') as read_obj:
