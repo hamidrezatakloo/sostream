@@ -2,6 +2,7 @@ from funcs import Dist,updateCluster,findNeighbors,findoverlap,mergeCluster,minD
 from csv import reader
 import Cluster
 import time
+import matplotlib.pyplot as plt
 start  = time.time()
 with open("Dataset_1.csv",'r') as read_obj:
     DS = reader(read_obj)
@@ -33,4 +34,15 @@ with open("Dataset_1.csv",'r') as read_obj:
             Mt.append(Cluster.Cluster(Vt))
         M.append(Mt)
     end = time.time()
+    y = []
+    for i in M:
+        y.append(len(i))
+    x = list(range(1,len(M)+1))
+    plt.plot(x,y,label="number of cluster base time")
+    plt.plot(x,numberdelete,label="number of deleted cluster base time")
+    plt.xlabel('t')
+    plt.ylabel('N')
+    plt.legend()
     print("exe time:{}".format(end - start))
+    print("number of clusters that deleted with merge",sum(numberdelete))
+    plt.show()
